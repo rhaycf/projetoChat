@@ -18,7 +18,7 @@ import { MessageService } from "../message.service";
 export class MessageListComponent implements OnInit {
     messageS: Message[] = [ new Message("Texto da Mensagem-LIST-Comp", "Rhay-LIST-Comp"),
                             new Message("Texto 2 da Mensagem-LIST-Comp", "Fabres-LIST-Comp"),
-                            new Message("Texto 3 da Mensagem-LIST-Comp", "Priori-LIST-Comp")
+                            new Message("Texto 3 da Mensagem-LIST-Comp", "Teste-LIST-Comp")
                           ];
     constructor (private messageService: MessageService) { }
 

@@ -13,7 +13,7 @@ export class MessageInputComponent {
     constructor (private messageService: MessageService) { }
 
     onSubmit(form: NgForm) {
-        const messageAux = new Message(form.value.myContentngForm, 'RhayTati');
+        const messageAux = new Message(form.value.myContentngForm, 'Rhay');
         this.messageService.addMessage(messageAux);
         console.log(form);
         form.resetForm();
