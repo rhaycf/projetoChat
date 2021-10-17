@@ -3,5 +3,4 @@
 Linguagens:
 
  * Angular
- * Node
  * TypeScript
