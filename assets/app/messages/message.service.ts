@@ -23,7 +23,21 @@ export class MessageService {
     }
 
     getMessages() {
-        return this.messageSService;
+        //return this.messageSService;
+        return this.http.get('http://localhost:3000/message')
+            .map((responseRecebida: Response) => {
+                const responseEmJSON = responseRecebida.json();
+                const messageSResponseRecebida = responseEmJSON.objSMessageSRecuperadoS;
+                let transfomedCastMessagesModelFrontend: Message [] = [];
+                    for(let msg of messageSResponseRecebida) {
+                        transfomedCastMessagesModelFrontend.push(
+                            new Message(msg.content, 'Rhayane', msg._id, null));
+                        
+                    }
+                this.messageSService = transfomedCastMessagesModelFrontend;    
+                return transfomedCastMessagesModelFrontend;    
+            })
+            .catch((errorRecebido: Response) => Observable.throw(errorRecebido.json()));
     }
 
     deleteMessage(message: Message) {

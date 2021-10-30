@@ -25,6 +25,13 @@ export class MessageListComponent implements OnInit {
     ngOnInit(): void {
         //messageS aponta para o array messageSService
         //que armazena os dados
-        this.messageS = this.messageService.getMessages();
+        this.messageService.getMessages()
+            .subscribe(
+                (dadosSucesso: Message[]) => {
+                    this.messageS = dadosSucesso;
+                    console.log(dadosSucesso)
+                },
+                dadosErro => console.log(dadosErro)
+            );
     }
 }
